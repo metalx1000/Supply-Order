@@ -70,10 +70,13 @@
       });
 
       $("#submitBTN").click(submit);
+      $("#cancelBTN").click(cancel);
 
       $('#amount').keyup(function(e){
           if(e.keyCode == 13){submit()}
       });
+
+      
     });
 
     function submit(){
@@ -83,6 +86,16 @@
       $("#myModal").modal('hide');
       console.log("Submited");
       $("#filter").focus();
+    }
+
+    function cancel(){
+      $("#filter").val("");
+      $("#amount").val("");
+      $("#items li").each(function(i, item){$(this).show();}); 
+      $("#myModal").modal('hide');
+      console.log("Cannceled");
+      $("#filter").focus();
+
     }
 
     function selectItem(item){
@@ -146,7 +159,7 @@
           <input id="amount" type="number"></input>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button id="cancelBTN" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           <button id="submitBTN" type="button" class="btn btn-default" >Order</button>
         </div>
       </div>
